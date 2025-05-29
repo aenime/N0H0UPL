@@ -1,0 +1,1 @@
+self.__REACT_LOADABLE_MANIFEST="{\"pages/admin.tsx -> ../components/admin/LoginForm\":{\"id\":\"pages/admin.tsx -> ../components/admin/LoginForm\",\"files\":[\"static/chunks/_pages-dir-browser_src_components_admin_LoginForm_tsx.js\"]}}"
