@@ -1,63 +1,36 @@
-import React, { useState, useEffect } from 'react';
-import { getDonationStats, initializeLocalStorage } from '../../utils/localStorage';
+import React from 'react';
 
 const ImpactSection: React.FC = () => {
-  const [donationTotal, setDonationTotal] = useState<number>(0);
-  const [donationCount, setDonationCount] = useState<number>(0);
-
-  useEffect(() => {
-    // Initialize localStorage if needed
-    initializeLocalStorage();
-    
-    // Get donation statistics from localStorage
-    const stats = getDonationStats();
-    setDonationTotal(stats.total);
-    setDonationCount(stats.count);
-  }, []);
-
-  const impactStats = [
-    {
-      id: 1,
-      count: '500+',
-      label: 'Animals Rescued',
-      icon: '🐾'
-    },
-    {
-      id: 2,
-      count: '350+',
-      label: 'Successful Adoptions',
-      icon: '🏠'
-    },
-    {
-      id: 3,
-      count: donationTotal > 0 ? `₹${donationTotal.toLocaleString()}` : '$100K+',
-      label: `${donationCount > 0 ? donationCount : 'Many'} Donations Received`,
-      icon: '💰'
-    },
-    {
-      id: 4,
-      count: '1000+',
-      label: 'Volunteer Hours',
-      icon: '❤️'
-    }
-  ];
-
   return (
-    <div className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-8">Our Impact</h2>
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Impact</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Through your generous support, we've been able to make a real difference in the lives of animals in need.
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {impactStats.map((stat) => (
-            <div key={stat.id} className="bg-white p-6 rounded-lg shadow-md text-center hover:shadow-lg transition-shadow">
-              <div className="text-4xl mb-2">{stat.icon}</div>
-              <div className="text-3xl font-bold text-green-600 mb-2">{stat.count}</div>
-              <div className="text-gray-600">{stat.label}</div>
-            </div>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="text-center">
+            <div className="text-4xl font-bold text-blue-600 mb-2">12,000+</div>
+            <div className="text-gray-600">Animals Rescued</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-green-600 mb-2">8,500+</div>
+            <div className="text-gray-600">Medical Treatments</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-orange-600 mb-2">15,000+</div>
+            <div className="text-gray-600">Animals Fed Daily</div>
+          </div>
+          <div className="text-center">
+            <div className="text-4xl font-bold text-purple-600 mb-2">500+</div>
+            <div className="text-gray-600">Successful Adoptions</div>
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

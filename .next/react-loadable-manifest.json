@@ -1,8 +1,18 @@
 {
-  "pages/admin.tsx -> ../components/admin/LoginForm": {
-    "id": "pages/admin.tsx -> ../components/admin/LoginForm",
+  "components/admin/ContentManager.tsx -> ./CategoryManager": {
+    "id": "components/admin/ContentManager.tsx -> ./CategoryManager",
     "files": [
-      "static/chunks/_pages-dir-browser_src_components_admin_LoginForm_tsx.js"
+      "static/chunks/_pages-dir-browser_src_components_admin_CategoryManager_tsx.js"
+    ]
+  },
+  "components/admin/ContentManager.tsx -> ./MediaManagerNew": {
+    "id": "components/admin/ContentManager.tsx -> ./MediaManagerNew",
+    "files": []
+  },
+  "components/admin/ContentManager.tsx -> ./PostsManager": {
+    "id": "components/admin/ContentManager.tsx -> ./PostsManager",
+    "files": [
+      "static/chunks/_pages-dir-browser_src_components_admin_PostsManager_tsx.js"
     ]
   }
 }

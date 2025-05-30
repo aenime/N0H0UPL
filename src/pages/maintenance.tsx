@@ -3,7 +3,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Button from '../components/common/Button';
 import { useRouter } from 'next/router';
-import { MdArrowBack, MdOutlineWarning, MdPets, MdVolunteerActivism } from 'react-icons/md';
+import { MdArrowBack, MdOutlineWarning, MdPets, MdFavorite } from 'react-icons/md';
 import { FaPaw, FaTwitter, FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 
 const Maintenance = () => {
@@ -145,7 +145,7 @@ const Maintenance = () => {
                   onClick={() => router.push('/donate')}
                   className="bg-green-600 hover:bg-green-700 text-white flex items-center gap-2 py-2 px-4"
                 >
-                  <MdVolunteerActivism /> 
+                  <MdFavorite /> 
                   <span>अभी दान करें</span>
                 </Button>
               </div>

@@ -1,23 +1,36 @@
-# Website Image Scraper Documentation
+# Website Media Scraper - Enhanced Documentation
 
 ## Overview
 
-The Website Image Scraper is a powerful admin tool that allows you to extract images from any website and import them directly into your media library. This feature includes advanced filtering options to ensure you only get high-quality images that meet your requirements.
+The Website Media Scraper is an advanced feature integrated into the NGO admin panel that allows administrators to import images and videos from external websites with granular control over the scraping process. This enhanced version includes comprehensive filtering, error handling, and storage management capabilities.
 
-## Features
+## Enhanced Features
 
-### 🔍 **Smart Image Detection**
+### 🌐 **URL-Based Scraping**
+- **Input Field**: Simple URL input to specify the target webpage
+- **Validation**: Automatic URL format validation before scraping
+- **Protocol Support**: Supports HTTP/HTTPS URLs with automatic protocol detection
+
+### 🔍 **Smart Media Detection**
 - Extracts images from `<img>` tags
 - Detects lazy-loaded images (`data-src` attributes)
 - Parses `srcset` attributes for responsive images
 - Finds CSS background images
+- **Video Support**: Detects `<video>` sources when enabled
 - Automatically converts relative URLs to absolute URLs
 
-### 📏 **Advanced Filtering Options**
+### 📹 **Video Selection (Enhanced)**
+- **Video Detection**: Automatic detection of video sources
+- **Toggle Control**: Option to include or exclude videos from scraping
+- **Format Support**: Supports common video formats (MP4, WebM, etc.)
+- **Preview Interface**: Visual indication of video content
+
+### 🎛️ **Advanced Filtering Options**
 - **Dimensions**: Set minimum and maximum width/height in pixels
 - **File Size**: Filter by minimum and maximum file size in KB
-- **Format Support**: Choose from JPG, JPEG, PNG, WebP, GIF, SVG
-- **Duplicate Detection**: Automatically removes duplicate images
+- **Format Support**: Choose from JPG, JPEG, PNG, WebP, GIF, BMP, SVG
+- **Alt Text Import**: Option to preserve original alt text
+- **Content Filtering**: Smart filtering based on image content
 
 ### 🖼️ **Image Processing**
 - Automatic image optimization during import

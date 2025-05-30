@@ -1,94 +1,94 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import Button from '../common/Button';
-
-type InjuredAnimal = {
-  id: string;
-  name: string;
-  image: string;
-  breed: string;
-  injury: string;
-  description: string;
-  urgency: 'critical' | 'serious' | 'stable';
-};
 
 const InjuredAnimals: React.FC = () => {
-  const injuredAnimals: InjuredAnimal[] = [
+  const injuredAnimals = [
     {
-      id: 'rescue1',
-      name: 'भोला',
-      image: '/images/animals/injured/injured-dog1.jpg',
-      breed: 'Indian Street Dog',
-      injury: 'Leg Injury',
-      description: 'भोला को एक सड़क दुर्घटना में चोट लगी। उसे तत्काल चिकित्सा और पुनर्वास की आवश्यकता है।',
-      urgency: 'critical'
+      id: 1,
+      name: "Emergency Case #247",
+      description: "Injured dog found on highway needs immediate medical attention",
+      image: "/images/animals/injured/injured-dog1.jpg",
+      urgency: "Critical",
+      location: "Mumbai Highway"
     },
     {
-      id: 'rescue2',
-      name: 'चंदन',
-      image: '/images/animals/injured/injured-cow1.jpg',
-      breed: 'Desi Cow',
-      injury: 'Malnutrition',
-      description: 'चंदन को सड़क पर पाया गया था, भूखा और कमजोर। वह अब हमारे गौशाला में है और उपचार प्राप्त कर रहा है।',
-      urgency: 'serious'
+      id: 2,
+      name: "Emergency Case #248",
+      description: "Injured cow with broken leg requires surgery and rehabilitation",
+      image: "/images/animals/injured/injured-cow1.jpg",
+      urgency: "High",
+      location: "Rural Delhi"
     },
     {
-      id: 'rescue3',
-      name: 'मिटटू',
-      image: '/images/animals/injured/injured-cat1.jpg',
-      breed: 'Indian Street Cat',
-      injury: 'Eye Infection',
-      description: 'मिटटू को गंभीर आंख संक्रमण है। उसे विशेष देखभाल और दवाओं की आवश्यकता है।',
-      urgency: 'stable'
+      id: 3,
+      name: "Emergency Case #249",
+      description: "Injured cat with severe wounds needs medical care",
+      image: "/images/animals/injured/injured-cat1.jpg",
+      urgency: "Medium",
+      location: "Pune Streets"
     }
   ];
 
+  const getUrgencyColor = (urgency: string) => {
+    switch (urgency) {
+      case 'Critical': return 'bg-red-100 text-red-800 border-red-200';
+      case 'High': return 'bg-orange-100 text-orange-800 border-orange-200';
+      case 'Medium': return 'bg-yellow-100 text-yellow-800 border-yellow-200';
+      default: return 'bg-gray-100 text-gray-800 border-gray-200';
+    }
+  };
+
   return (
-    <div className="py-12 bg-orange-50">
-      <div className="container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-center mb-2">आपातकालीन सहायता</h2>
-        <p className="text-center mb-8 text-gray-600">These animals need immediate help. Your support can save their lives.</p>
+    <section className="py-16 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center bg-red-100 text-red-800 text-sm font-medium px-3 py-1 rounded-full mb-4">
+            🚨 URGENT HELP NEEDED
+          </div>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Animals Need Immediate Help</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            These animals are in critical condition and need your support right now. Every minute counts.
+          </p>
+        </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {injuredAnimals.map((animal) => (
-            <div key={animal.id} className="bg-white rounded-lg shadow-md overflow-hidden border-2 border-red-200">
-              <div className="relative h-64">
-                <div className={`absolute top-0 right-0 z-10 ${
-                  animal.urgency === 'critical' ? 'bg-red-600' :
-                  animal.urgency === 'serious' ? 'bg-orange-500' : 'bg-yellow-500'
-                } text-white px-3 py-1 m-2 rounded-full text-sm`}>
-                  {animal.urgency === 'critical' ? 'अत्यंत जरुरी' :
-                   animal.urgency === 'serious' ? 'गंभीर' : 'स्थिर'}
-                </div>
-                <Image 
-                  src={animal.image} 
-                  alt={animal.name} 
-                  fill 
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  style={{ objectFit: 'cover' }}
+            <div key={animal.id} className="bg-white rounded-lg shadow-lg overflow-hidden border">
+              <div className="relative h-48">
+                <Image
+                  src={animal.image}
+                  alt={animal.name}
+                  fill
+                  className="object-cover"
                 />
+                <div className={`absolute top-2 right-2 px-2 py-1 rounded-full text-xs font-medium border ${getUrgencyColor(animal.urgency)}`}>
+                  {animal.urgency}
+                </div>
               </div>
-              <div className="p-4"> 
-                <h3 className="text-xl font-bold mb-1">{animal.name}</h3>
-                <div className="text-gray-600 mb-1 text-sm">{animal.breed}</div>
-                <div className="text-red-600 font-semibold mb-2 text-sm">Injury: {animal.injury}</div>
-                <p className="text-gray-700 mb-4">{animal.description}</p>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{animal.name}</h3>
+                <p className="text-gray-600 mb-3">{animal.description}</p>
+                <div className="text-sm text-gray-500 mb-4">📍 {animal.location}</div>
                 <Link href="/donate">
-                  <Button variant="primary" className="w-full">अभी मदद करें</Button>
+                  <button className="w-full bg-red-600 text-white py-2 px-4 rounded-lg font-medium hover:bg-red-700 transition-colors">
+                    Help Now
+                  </button>
                 </Link>
               </div>
             </div>
           ))}
         </div>
-        
-        <div className="text-center mt-8">
-          <Link href="/animals/injured">
-            <Button variant="secondary">सभी आपातकालीन मामले देखें</Button>
+
+        <div className="text-center">
+          <Link href="/donate">
+            <button className="bg-red-600 text-white py-4 px-8 rounded-lg font-bold text-lg hover:bg-red-700 transition-colors animate-pulse">
+              🚨 Emergency Donation - Help Save Lives
+            </button>
           </Link>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

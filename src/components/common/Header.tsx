@@ -57,7 +57,6 @@ const Header: React.FC = () => {
            <div className="flex items-center space-x-4">
              <LanguageSelector />
              <Link href="/about" className="hover:text-green-600">About Us</Link>
-             <Link href="/volunteer" className="hover:text-green-600">Volunteer</Link>
              <Link href="/contact" className="hover:text-green-600">Contact</Link>
            </div>
          </div>
@@ -153,9 +152,6 @@ const Header: React.FC = () => {
                  </Link>
                )}
                {/* Additional links not in the navItems */}
-               {!navItems.some(item => item.path === '/volunteer') && 
-                 <Link href="/volunteer" className="py-2 text-gray-700 hover:text-green-600">Volunteer</Link>
-               }
                {!navItems.some(item => item.path === '/contact') && 
                  <Link href="/contact" className="py-2 text-gray-700 hover:text-green-600">Contact</Link>
                }

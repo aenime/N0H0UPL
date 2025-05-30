@@ -1,97 +1,72 @@
 import React from 'react';
 import Link from 'next/link';
-import { FaPaw, FaHospital, FaHome, FaHandsHelping, FaShieldAlt, FaUtensils, FaChild, FaLeaf } from 'react-icons/fa';
-
-type Program = {
-  id: string;
-  title: string;
-  description: string;
-  icon: React.ReactNode;
-  link: string;
-};
 
 const ProgramCategories: React.FC = () => {
-  const programs: Program[] = [
+  const programs = [
     {
-      id: '1',
-      title: 'Animal Rescue',
-      description: 'Rescuing animals from abuse, abandonment, and dangerous situations.',
-      icon: <FaPaw size={32} className="text-green-600" />,
-      link: '/programs/rescue'
+      id: 1,
+      title: "Emergency Rescue",
+      description: "24/7 emergency response for injured and distressed animals",
+      icon: "🚑",
+      link: "/emergency"
     },
     {
-      id: '2',
-      title: 'Medical Care',
-      description: 'Providing veterinary treatment, surgeries, and preventive care.',
-      icon: <FaHospital size={32} className="text-green-600" />,
-      link: '/programs/medical'
+      id: 2,
+      title: "Medical Care",
+      description: "Professional veterinary treatment and rehabilitation services",
+      icon: "🏥",
+      link: "/medical-care"
     },
     {
-      id: '3',
-      title: 'Hunger Relief',
-      description: 'Providing meals and food supplies to underprivileged communities and the homeless.',
-      icon: <FaUtensils size={32} className="text-orange-600" />,
-      link: '/programs/hunger-relief'
+      id: 3,
+      title: "Shelter & Care",
+      description: "Safe shelter, nutritious food, and loving care for homeless animals",
+      icon: "🏠",
+      link: "/shelter"
     },
     {
-      id: '4',
-      title: 'Child Welfare',
-      description: 'Supporting orphaned and vulnerable children with shelter, education and care.',
-      icon: <FaChild size={32} className="text-blue-600" />,
-      link: '/programs/child-welfare'
+      id: 4,
+      title: "Adoption Program",
+      description: "Helping animals find loving forever homes with responsible families",
+      icon: "❤️",
+      link: "/adoption"
     },
     {
-      id: '5',
-      title: 'Environmental Protection',
-      description: 'Conservation efforts to preserve natural habitats and create a healthier environment.',
-      icon: <FaLeaf size={32} className="text-green-600" />,
-      link: '/programs/environment'
+      id: 5,
+      title: "Education & Awareness",
+      description: "Community education about animal welfare and responsible pet ownership",
+      icon: "📚",
+      link: "/education"
     },
     {
-      id: '6',
-      title: 'Community Outreach',
-      description: 'Educational programs promoting welfare of all living beings in communities.',
-      icon: <FaHandsHelping size={32} className="text-green-600" />,
-      link: '/programs/community'
-    },
-    {
-      id: '7',
-      title: 'Adoption',
-      description: 'Finding loving forever homes for rehabilitated animals.',
-      icon: <FaHome size={32} className="text-green-600" />,
-      link: '/programs/adoption'
-    },
-    {
-      id: '8',
-      title: 'Advocacy',
-      description: 'Fighting for stronger protection laws and policies for all vulnerable beings.',
-      icon: <FaShieldAlt size={32} className="text-green-600" />,
-      link: '/programs/advocacy'
+      id: 6,
+      title: "Volunteer Program",
+      description: "Join our team of dedicated volunteers making a difference",
+      icon: "🤝",
+      link: "/volunteer"
     }
   ];
 
   return (
-    <div className="py-12 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-2">Our Programs</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            We offer comprehensive programs to help all living beings in need - from animal welfare to human hunger relief, orphaned children support, and environmental protection.
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Programs</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            We offer comprehensive programs to address every aspect of animal welfare and rescue operations.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {programs.map(program => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {programs.map((program) => (
             <Link key={program.id} href={program.link}>
-              <div className="bg-gray-50 rounded-lg p-6 shadow-sm hover:shadow-md transition-shadow flex flex-col h-full border border-gray-100">
-                <div className="mb-4">
-                  {program.icon}
-                </div>
-                <h3 className="text-xl font-bold mb-2 text-gray-800">{program.title}</h3>
-                <p className="text-gray-600 mb-4 flex-grow">{program.description}</p>
-                <div className="text-green-600 font-medium flex items-center mt-auto">
-                  Learn more
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow cursor-pointer h-full">
+                <div className="text-4xl mb-4">{program.icon}</div>
+                <h3 className="text-xl font-bold text-gray-900 mb-3">{program.title}</h3>
+                <p className="text-gray-600">{program.description}</p>
+                <div className="mt-4 inline-flex items-center text-blue-600 font-medium">
+                  Learn More
+                  <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </div>
@@ -100,7 +75,7 @@ const ProgramCategories: React.FC = () => {
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

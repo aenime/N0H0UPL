@@ -2,12 +2,8 @@ import Head from 'next/head';
 import Layout from '../components/common/Layout';
 import Hero from '../components/home/Hero';
 import AnimalCards from '../components/home/AnimalCards';
-import ImpactSection from '../components/home/ImpactSection';
-import SuccessStories from '../components/home/SuccessStories';
 import EmergencyAppeal from '../components/home/EmergencyAppeal';
-import ProgramCategories from '../components/home/ProgramCategories';
-import Testimonials from '../components/home/Testimonials';
-import InjuredAnimals from '../components/home/InjuredAnimals';
+import CategoryPostsSection from '../components/home/CategoryPostsSection';
 
 export default function Home() {
   return (
@@ -22,17 +18,9 @@ export default function Home() {
       
       <EmergencyAppeal />
       
-      <ProgramCategories />
-      
-      <InjuredAnimals />
-      
-      <ImpactSection />
-      
       <AnimalCards />
       
-      <SuccessStories />
-      
-      <Testimonials />
+      <CategoryPostsSection />
     </Layout>
   );
 }

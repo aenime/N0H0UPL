@@ -10,10 +10,10 @@ const AVAILABLE_ROUTES = [
   '/gaushala',
   '/child-welfare',
   '/environmental',
+  '/medical-care',
   '/donate',
   '/thank-you',
   '/jobs',
-  '/volunteer',
   '/contact',
   '/admin',
   '/maintenance',
@@ -25,7 +25,6 @@ const AVAILABLE_ROUTES = [
 
 // Routes that are temporarily under maintenance
 const UNDER_MAINTENANCE = [
-  '/medical-care',
   '/hunger-relief',
   '/animal-rescue'
 ];

@@ -1,73 +1,69 @@
 import React from 'react';
-import { FaQuoteLeft } from 'react-icons/fa';
-
-type Testimonial = {
-  id: string;
-  name: string;
-  role: string;
-  avatar: string;
-  content: string;
-};
 
 const Testimonials: React.FC = () => {
-  const testimonials: Testimonial[] = [
+  const testimonials = [
     {
-      id: '1',
-      name: 'Sarah Johnson',
-      role: 'Monthly Donor',
-      avatar: '/images/testimonials/avatar1.jpg',
-      content: 'I\'ve been supporting Paws & Care for three years now. Their commitment to animal welfare is truly inspiring, and I know my monthly donations are making a real difference in the lives of animals.'
+      id: 1,
+      name: "Priya Sharma",
+      location: "Mumbai",
+      text: "Karuna For All saved my dog's life when he was critically injured. Their dedication and care is unmatched. I'm forever grateful.",
+      rating: 5
     },
     {
-      id: '2',
-      name: 'Michael Rodriguez',
-      role: 'Volunteer',
-      avatar: '/images/testimonials/avatar2.jpg',
-      content: 'Volunteering with Paws & Care has been one of the most rewarding experiences of my life. Seeing animals transform from scared and injured to happy and healthy is absolutely incredible.'
+      id: 2,
+      name: "Rajesh Kumar",
+      location: "Delhi",
+      text: "I adopted my cat through their program. The team was so helpful and made sure it was the perfect match. Highly recommended!",
+      rating: 5
     },
     {
-      id: '3',
-      name: 'Emily Chen',
-      role: 'Adopter',
-      avatar: '/images/testimonials/avatar3.jpg',
-      content: 'We adopted our dog Max from Paws & Care last year. The staff was incredibly helpful throughout the process, and Max has brought so much joy to our family. We\'re forever grateful!'
+      id: 3,
+      name: "Anjali Patel",
+      location: "Pune",
+      text: "Their 24/7 emergency service rescued a injured cow near my area. The response was immediate and professional.",
+      rating: 5
     }
   ];
 
+  const renderStars = (rating: number) => {
+    return Array.from({ length: 5 }, (_, i) => (
+      <svg
+        key={i}
+        className={`w-5 h-5 ${i < rating ? 'text-yellow-400' : 'text-gray-300'}`}
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+      </svg>
+    ));
+  };
+
   return (
-    <div className="py-12 bg-gray-50">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-10">
-          <h2 className="text-3xl font-bold mb-2">What Our Supporters Say</h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Hear from the people who have experienced our work firsthand - donors, volunteers, and adopters who believe in our mission.
+    <section className="py-16 bg-blue-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">What People Say</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Real stories from people whose lives have been touched by our animal welfare work.
           </p>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {testimonials.map(testimonial => (
-            <div key={testimonial.id} className="bg-white p-6 rounded-lg shadow-md">
-              <div className="text-green-600 mb-4">
-                <FaQuoteLeft size={24} />
+          {testimonials.map((testimonial) => (
+            <div key={testimonial.id} className="bg-white rounded-lg shadow-lg p-6">
+              <div className="flex items-center mb-4">
+                {renderStars(testimonial.rating)}
               </div>
-              <p className="text-gray-700 mb-6 italic">"{testimonial.content}"</p>
-              <div className="flex items-center">
-                <div className="w-12 h-12 bg-gray-300 rounded-full mr-4 relative overflow-hidden">
-                  {/* Placeholder for avatar - in production you would use real images */}
-                  <div className="absolute inset-0 flex items-center justify-center text-gray-600 font-bold text-xl">
-                    {testimonial.name.charAt(0)}
-                  </div>
-                </div>
-                <div>
-                  <div className="font-semibold text-gray-800">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
-                </div>
+              <p className="text-gray-600 mb-4 italic">"{testimonial.text}"</p>
+              <div>
+                <div className="font-medium text-gray-900">{testimonial.name}</div>
+                <div className="text-sm text-gray-500">{testimonial.location}</div>
               </div>
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

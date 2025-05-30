@@ -1,10 +1,34 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import Layout from '../components/common/Layout';
 import DonationForm from '../components/donation/DonationForm';
+import InteractiveDonationPage from '../components/donation/InteractiveDonationPage';
 
 export default function DonatePage() {
+  const [useInteractive, setUseInteractive] = useState(false);
+
+  // If interactive mode is selected, render the full-screen interactive page
+  if (useInteractive) {
+    return (
+      <>
+        <Head>
+          <title>Interactive Donation Experience - Paws & Care</title>
+          <meta name="description" content="Experience our magical donation page with rainbow effects and bouncing bubbles while helping animals in need." />
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        </Head>
+        <InteractiveDonationPage />
+        {/* Back to regular mode button */}
+        <button
+          onClick={() => setUseInteractive(false)}
+          className="fixed top-4 left-4 z-50 bg-white/80 backdrop-blur-sm hover:bg-white text-gray-800 px-4 py-2 rounded-full shadow-lg transition-all"
+        >
+          ← Back to Regular View
+        </button>
+      </>
+    );
+  }
   return (
     <Layout>
       <Head>
@@ -110,6 +134,17 @@ export default function DonatePage() {
           
           {/* Donation form anchor */}
           <div id="donate-form" className="mb-2 -mt-20 pt-20">
+            {/* Interactive mode toggle */}
+            <div className="text-center mb-6">
+              <button
+                onClick={() => setUseInteractive(true)}
+                className="bg-gradient-to-r from-purple-500 to-pink-600 hover:from-purple-600 hover:to-pink-700 text-white font-bold py-3 px-6 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 animate-pulse"
+              >
+                🌈 Try Interactive Donation Experience 🎉
+              </button>
+              <p className="text-xs text-gray-600 mt-2">Experience rainbow effects and bouncing bubbles!</p>
+            </div>
+            
             <DonationForm />
           </div>
           

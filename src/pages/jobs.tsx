@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Layout from '../components/common/Layout';
 
 const Jobs = () => {
-  // Sample job listings
   const jobs = [
     {
       id: 1,
@@ -38,7 +37,7 @@ const Jobs = () => {
       title: "Community Outreach Coordinator",
       location: "Gurgaon",
       type: "Full-time",
-      description: "Lead our community engagement initiatives, including awareness programs, educational workshops, and volunteer coordination.",
+      description: "Lead our community engagement initiatives, including awareness programs and educational workshops.",
       requirements: [
         "Experience in community development or public relations",
         "Strong communication and presentation skills",
@@ -140,12 +139,6 @@ const Jobs = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   Send Email
-                </a>
-                <a 
-                  href="/volunteer" 
-                  className="inline-flex items-center px-5 py-2 border border-gray-300 text-gray-700 rounded-md hover:bg-gray-50 transition"
-                >
-                  Learn about volunteering
                 </a>
               </div>
             </div>

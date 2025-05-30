@@ -89,9 +89,6 @@ const Footer: React.FC = () => {
                 <li><Link href="/donate" className="hover:text-orange-300 hover:underline transition-colors duration-200 flex items-center">
                   <span className="text-orange-500 mr-1">❯</span> दान करें
                 </Link></li>
-                <li><Link href="/volunteer" className="hover:text-orange-300 hover:underline transition-colors duration-200 flex items-center">
-                  <span className="text-orange-500 mr-1">❯</span> स्वयंसेवक
-                </Link></li>
                 <li><Link href="/stories" className="hover:text-orange-300 hover:underline transition-colors duration-200 flex items-center">
                   <span className="text-orange-500 mr-1">❯</span> सफलता की कहानियां
                 </Link></li>
